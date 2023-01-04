@@ -13,14 +13,16 @@ export type TaskType = {
 export const Todolist = (props: TitlePropType) => {
     let TasksList;
 
-    (props.tasks.length === 0) ? TasksList = <span>Empty</span> : TasksList = props.tasks.map( el =>{
+    (props.tasks.length === 0) ? TasksList = <span>Empty</span> :
+        TasksList = props.tasks.map(el => {
 
-        return (
-            <li> <input type="checkbox" checked ={el.isDone}/>
-                <span>{el.title}</span></li>
-        )
-
-    })
+            return (
+                <li><input type="checkbox" checked={el.isDone}/>
+                    <span>{el.title}</span>
+                    <button onClick={()=> {alert(el.id)}}>X</button>
+                </li>
+            )
+        })
     return (
         <div className='Todolist'>
             <div>
